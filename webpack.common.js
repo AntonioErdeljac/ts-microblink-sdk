@@ -1,5 +1,8 @@
+require('dotenv').config();
+
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { DefinePlugin } = require('webpack');
 
 module.exports = {
   entry: './src/index.ts',
@@ -20,6 +23,9 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js'],
   },
   plugins: [
+    new DefinePlugin({
+      LICENSE_KEY: JSON.stringify(process.env.LICENSE_KEY),
+    }),
     new HtmlWebpackPlugin({
       title: 'ts-microblink-sdk',
     }),

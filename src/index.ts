@@ -1,11 +1,21 @@
-import './styles.css';
+import * as BlinkIDSDK from '@microblink/blinkid-in-browser-sdk';
 
-function component() {
-  const element = document.createElement('div');
+declare const LICENSE_KEY: string | undefined;
 
-  element.innerHTML = 'Microblink SDK 2';
+// Check if browser is supported
+if (BlinkIDSDK.isBrowserSupported()) {
+  const loadSettings = new BlinkIDSDK.WasmSDKLoadSettings(LICENSE_KEY);
 
-  return element;
+  BlinkIDSDK.loadWasmModule(loadSettings).then(
+    (wasmSDK: BlinkIDSDK.WasmSDK) => {
+      console.log('SUCCESS!');
+      // The SDK was initialized successfully, save the wasmSDK for future use
+    },
+    (error: any) => {
+      // Error happened during the initialization of the SDK
+      console.log('Error during the initialization of the SDK!', error);
+    },
+  );
+} else {
+  console.log('This browser is not supported by the SDK!');
 }
-
-document.body.appendChild(component());

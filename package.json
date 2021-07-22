@@ -14,9 +14,13 @@
     "@typescript-eslint/eslint-plugin": "4.28.4",
     "@typescript-eslint/parser": "4.28.4",
     "css-loader": "6.2.0",
+    "dotenv": "10.0.0",
     "eslint": "7.31.0",
+    "eslint-config-airbnb": "18.2.1",
     "eslint-config-airbnb-base": "14.2.1",
+    "eslint-config-prettier": "8.3.0",
     "eslint-plugin-import": "2.23.4",
+    "eslint-plugin-prettier": "3.4.0",
     "html-webpack-plugin": "5.3.2",
     "prettier": "2.3.2",
     "style-loader": "3.2.1",
@@ -27,5 +31,7 @@
     "webpack-dev-server": "3.11.2",
     "webpack-merge": "5.8.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@microblink/blinkid-in-browser-sdk": "5.12.0"
+  }
 }
