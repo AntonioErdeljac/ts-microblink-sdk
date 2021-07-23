@@ -27,7 +27,7 @@ module.exports = {
       LICENSE_KEY: JSON.stringify(process.env.LICENSE_KEY),
     }),
     new HtmlWebpackPlugin({
-      title: 'ts-microblink-sdk',
+      template: './public/index.html',
     }),
   ],
   output: {
