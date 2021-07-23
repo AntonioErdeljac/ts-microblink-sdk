@@ -2,7 +2,7 @@
 
 A Microblink SDK integration example
 
-### Lint
+### Code style
 [![Typescript](https://img.shields.io/badge/Typescript-white?logo=typescript&style=flat)](https://github.com/prettier/prettier)
 [![eslint: airbnb](https://img.shields.io/badge/Eslint-Airbnb-white?logo=airbnb&style=flat)](https://github.com/airbnb/javascript)
 [![code style: prettier](https://img.shields.io/badge/Code%20Style-Prettier-white?logo=prettier&style=flat)](https://github.com/prettier/prettier)
