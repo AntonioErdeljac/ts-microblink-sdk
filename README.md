@@ -3,8 +3,9 @@
 A Microblink SDK integration example
 
 ### Lint
-[![eslint: airbnb](https://img.shields.io/badge/Eslint-Airbnb-red?logo=airbnb&style=flat)](https://github.com/airbnb/javascript)
-[![code style: prettier](https://img.shields.io/badge/Code%20Style-Prettier-red?logo=prettier&style=flat)](https://github.com/prettier/prettier)
+[![Typescript](https://img.shields.io/badge/Typescript-white?logo=typescript&style=flat)](https://github.com/prettier/prettier)
+[![eslint: airbnb](https://img.shields.io/badge/Eslint-Airbnb-white?logo=airbnb&style=flat)](https://github.com/airbnb/javascript)
+[![code style: prettier](https://img.shields.io/badge/Code%20Style-Prettier-white?logo=prettier&style=flat)](https://github.com/prettier/prettier)
 
 ### Cloning the repository
 
