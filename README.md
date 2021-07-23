@@ -19,6 +19,28 @@ git clone https://github.com/AntonioErdeljac/ts-microblink-sdk.git
 npm i
 ```
 
+### Setup Microblink
+
+```shell
+npm run setup
+```
+### Starting
+
+Make sure you've done `npm run setup` first.
+
+```shell
+npm run start
+```
+
+### Building
+
+Make sure you've done `npm run setup` first.
+
+```shell
+npm run build
+```
+
+
 ### Available commands
 
 Running commands with npm `npm run [command]`
@@ -27,6 +49,7 @@ Running commands with npm `npm run [command]`
 | :----------------- | :---------------------------------------------------------------------------------------------------------- |
 | `start`            | Starts a development instance of the app                                                                    |
 | `build`            | Builds production instance of the app                                                                       |
+| `setup`            | Prepares necessary files from node_modules                                                                  |
 
 ### Environment variables
 
