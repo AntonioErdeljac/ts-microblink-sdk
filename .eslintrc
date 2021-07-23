@@ -24,8 +24,16 @@
       "error",
       "ignorePackages",
       {
-        "*.js": "never"
+        "js": "never",
+        "ts": "never"
       }
    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
   }
 }
