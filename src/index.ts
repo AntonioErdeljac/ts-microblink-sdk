@@ -11,6 +11,8 @@ const formWapperElement = document.getElementById('form-wrapper');
 const cameraElement = document.getElementById('camera') as HTMLVideoElement;
 const cameraWrapperElement = document.getElementById('camera-wrapper') as HTMLVideoElement;
 const hintElement = document.getElementById('hint');
+const messageWrapperElement = document.getElementById('message-wrapper');
+const messageElement = document.getElementById('message-body');
 
 const hintMap: Record<DetectionStatus, string> = {
   [BlinkIDSDK.DetectionStatus.Fail]: 'Detecting the document...',
@@ -21,6 +23,17 @@ const hintMap: Record<DetectionStatus, string> = {
   [BlinkIDSDK.DetectionStatus.CameraTooNear]: 'Document too close',
   [BlinkIDSDK.DetectionStatus.Partial]: 'Document too close',
   [BlinkIDSDK.DetectionStatus.FallbackSuccess]: 'Document detected',
+};
+
+const TOAST_TIMEOUT_MS = 3000;
+
+const toast = (message: string) => {
+  messageElement.innerText = message;
+  messageWrapperElement.classList.add('show');
+
+  setTimeout(() => {
+    messageWrapperElement.classList.remove('show');
+  }, TOAST_TIMEOUT_MS);
 };
 
 const hint = (quad: BlinkIDSDK.DisplayableQuad): void => {
@@ -78,6 +91,8 @@ const scan = async (sdk: BlinkIDSDK.WasmSDK): Promise<void | null> => {
       onQuadDetection: (quad: BlinkIDSDK.DisplayableQuad) => hint(quad),
     });
 
+    hintElement.innerText = 'Please can the front side of the document.';
+
     const videoRecognizer = await BlinkIDSDK.VideoRecognizer.createVideoRecognizerFromCameraStream(
       cameraElement,
       runner,
@@ -104,17 +119,19 @@ const scan = async (sdk: BlinkIDSDK.WasmSDK): Promise<void | null> => {
       doeValue.setDate(recognitionResult?.dateOfExpiry?.day);
 
       updateField('doe', doeValue.toDateString());
+
+      toast('Document scanned.');
     }
 
     reset({ videoRecognizer, runner, recognizer });
   } catch {
-    titleElement.innerText = 'Something went wrong';
+    toast('An error occured, make sure you have the right permissions set.');
   }
 };
 
 const setup = async (): Promise<void | null> => {
   if (!BlinkIDSDK.isBrowserSupported()) {
-    titleElement.innerText = 'Browser not supported';
+    toast('Please stop using IE.');
     return null;
   }
 
@@ -146,7 +163,7 @@ const setup = async (): Promise<void | null> => {
       scan(sdk);
     });
   } catch {
-    titleElement.innerText = 'Something went wrong';
+    toast('Something went wrong');
   }
 };
 
